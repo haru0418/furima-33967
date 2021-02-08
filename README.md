@@ -1,10 +1,9 @@
 ## users テーブル
 
-| Column                 |Type     |Options      |
-|------------------------|---------|-------------|
-| nickname               | string  | null: false, unique: true |
+| Column                 |Type     |Options                    |
+|------------------------|---------|---------------------------|
+| nickname               | string  | null: false               |
 | email                  | string  | null: false, unique: true |
-| password               | string  | null: false               |
 | encrypted_password     | string  | null: false               |
 | first_name             | string  | null: false               |
 | last_name              | string  | null: false               |
@@ -21,7 +20,7 @@
 
 | Column               |Type        |Options            |
 |----------------------|------------|-------------------|
-| product              | text       | null: false       |
+| product              | string     | null: false       |
 | product_description  | text       | null: false       |
 | category_id          | integer    | null: false       |
 | product_condition_id | integer    | null: false       |
@@ -47,19 +46,19 @@ has_one    :order
 ### Association
 belongs_to :user
 belongs_to :item
-belongs_to :address
+has_one :address
 
-## address テーブル
+## addresses テーブル
 
 | Column              |Type        |Options             |
 |---------------------|------------|--------------------|
-| post_code           | integer    | null: false        |
+| post_code           | string     | null: false        |
 | prefecture_id       | integer    | null: false        |
-| prefecture_city     | text       | null: false        |
-| prefecture_block    | text       | null: false        |
-| prefecture_building | text       |                    |
-| phone_number        | integer    | null: false        |
+| prefecture_city     | string     | null: false        |
+| prefecture_block    | string     | null: false        |
+| prefecture_building | string     |                    |
+| phone_number        | string     | null: false        |
 | order               | references | foreign_key: true  |
 
 ### Association
-has_many :orders
+belongs_to :orders
