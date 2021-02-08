@@ -3,16 +3,14 @@
 | Column                 |Type     |Options      |
 |------------------------|---------|-------------|
 | nickname               | string  | null: false, unique: true |
-| email                  | string  | null: false               |
+| email                  | string  | null: false, unique: true |
 | password               | string  | null: false               |
-| password_confirmation  | string  | null: false               |
+| encrypted_password     | string  | null: false               |
 | first_name             | string  | null: false               |
 | last_name              | string  | null: false               |
 | first_name_kana        | string  | null: false               |
 | last_name_kana         | string  | null: false               |
-| birth_day              | integer | null: false               |
-| birth_month            | integer | null: false               |
-| birth_year             | integer | null: false               |
+| birth_day              | date    | null: false               |
 
 
 ### Association
@@ -25,11 +23,11 @@
 |----------------------|------------|-------------------|
 | product              | text       | null: false       |
 | product_description  | text       | null: false       |
-| category             | integer    | null: false       |
-| product_condition    | integer    | null: false       |
-| ship_burden          | integer    | null: false       |
-| ship_city            | integer    | null: false       |
-| ship_day             | integer    | null: false       |
+| category_id          | integer    | null: false       |
+| product_condition_id | integer    | null: false       |
+| ship_burden_id       | integer    | null: false       |
+| ship_city_id         | integer    | null: false       |
+| ship_day_id          | integer    | null: false       |
 | price                | integer    | null: false       |
 | user                 | references | foreign_key: true |
 
@@ -53,18 +51,15 @@ belongs_to :address
 
 ## address テーブル
 
-| Column          |Type        |Options             |
-|-----------------|------------|--------------------|
-| card_number     | integer    | null: false        |
-| exp_month       | integer    | null: false        |
-| exp_year        | integer    | null: false        |
-| post_code       | integer    | null: false        |
-| prefecture      | integer    | null: false        |
-| city            | text       | null: false        |
-| block           | text       | null: false        |
-| building        | text       |                    |
-| phone_number    | integer    | null: false        |
-| order           | references | foreign_key: true  |
+| Column              |Type        |Options             |
+|---------------------|------------|--------------------|
+| post_code           | integer    | null: false        |
+| prefecture_id       | integer    | null: false        |
+| prefecture_city     | text       | null: false        |
+| prefecture_block    | text       | null: false        |
+| prefecture_building | text       |                    |
+| phone_number        | integer    | null: false        |
+| order               | references | foreign_key: true  |
 
 ### Association
 has_many :orders
