@@ -25,7 +25,7 @@
 | category_id          | integer    | null: false       |
 | product_condition_id | integer    | null: false       |
 | ship_burden_id       | integer    | null: false       |
-| ship_city_id         | integer    | null: false       |
+| prefecture_id        | integer    | null: false       |
 | ship_day_id          | integer    | null: false       |
 | price                | integer    | null: false       |
 | user                 | references | foreign_key: true |
@@ -61,4 +61,4 @@ has_one :address
 | order               | references | foreign_key: true  |
 
 ### Association
-belongs_to :orders
+belongs_to :order
