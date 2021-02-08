@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 <mxfile host="65bd71144e" modified="2021-02-08T07:59:17.546Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="13.10.0" etag="nTYYCuiM4nt8gmfgtYMB" type="embed">
     <diagram id="5N-24QjUlyHWWqhQxpTc" name="ページ1">
         <mxGraphModel dx="740" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+=======
+<mxfile host="65bd71144e" modified="2021-02-08T08:21:38.094Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="13.10.0" etag="QjTPg7kuoamM9B-IY95S" type="embed">
+    <diagram id="5N-24QjUlyHWWqhQxpTc" name="ページ1">
+        <mxGraphModel dx="888" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+>>>>>>> Stashed changes
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -19,7 +25,11 @@
                 <mxCell id="6" value="itemsテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="480" y="80" width="320" height="190" as="geometry"/>
                 </mxCell>
+<<<<<<< Updated upstream
                 <mxCell id="7" value="image (ActiveStorageで実装)&#10;product (string型, NOT NULL)&#10;product_description (text型, NOT NULL)&#10;category_id (integer型, NOT NULL)&#10;product_condition_id (integer型, NOT NULL)&#10;ship_burden_id (integer型, NOT NULL)&#10;ship_city_id (integer型, NOT NULL)&#10;ship_days_id (integer型, NOT NULL)&#10;price (integer型, NOT NULL)&#10;user (references型)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
+=======
+                <mxCell id="7" value="image (ActiveStorageで実装)&#10;product (string型, NOT NULL)&#10;product_description (text型, NOT NULL)&#10;category_id (integer型, NOT NULL)&#10;product_condition_id (integer型, NOT NULL)&#10;ship_burden_id (integer型, NOT NULL)&#10;prefecture_id (integer型, NOT NULL)&#10;ship_days_id (integer型, NOT NULL)&#10;price (integer型, NOT NULL)&#10;user (references型)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
+>>>>>>> Stashed changes
                     <mxGeometry y="26" width="320" height="164" as="geometry"/>
                 </mxCell>
                 <mxCell id="36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpStyle=none;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERone;endFill=0;endSize=41;targetPerimeterSpacing=13;strokeWidth=1;fontColor=none;" edge="1" parent="1" source="8" target="16">
