@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
 
+  validates :image, presence: true
   validates :product, presence: true
   validates :product_description, presence: true
   validates :category_id, presence: true
