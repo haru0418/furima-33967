@@ -3,8 +3,9 @@ class Item < ApplicationRecord
   validates :product, presence: true, length: { maximum: 40 }
   validates :product_description, presence: true, length: { maximum: 1000 }
   validates :price, presence: true, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
-  
+  validates :price,
+            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+
   with_options presence: true, numericality: { other_than: 1, message: 'status Select' } do
     validates :category_id
     validates :product_condition_id
@@ -12,7 +13,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :ship_day_id
   end
-  
+
   belongs_to :user
   has_one_attached :image
 
