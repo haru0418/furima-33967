@@ -4,8 +4,8 @@ function price (){
     const inputValue = priceInput.value
     const addTaxPrice = document.getElementById('add-tax-price')
     const profit = document.getElementById('profit')
-    addTaxPrice.innerHTML = Math.floor(inputValue / 10)
-    profit.innerHTML = Math.floor(inputValue - (inputValue / 10 ))
+    addTaxPrice.innerHTML = Math.floor(inputValue / 10).toLocaleString()
+    profit.innerHTML = Math.floor(inputValue - (inputValue / 10 )).toLocaleString()
   })
 }
 
