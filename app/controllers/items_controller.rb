@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  
+
   def index
   end
 
@@ -15,12 +15,13 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end 
+    end
   end
-    
+
   private
 
   def item_params
-    params.require(:item).permit(:image, :product, :product_description, :category_id, :product_condition_id, :ship_burden_id, :prefecture_id, :ship_day_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :product, :product_description, :category_id, :product_condition_id, :ship_burden_id,
+                                 :prefecture_id, :ship_day_id, :price).merge(user_id: current_user.id)
   end
 end

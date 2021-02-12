@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
     it 'productがないと出品できない' do
-      @item.product = ""
+      @item.product = ''
       @item.valid?
       expect(@item.errors.full_messages).to include("Product can't be blank")
     end
@@ -26,27 +26,27 @@ RSpec.describe Item, type: :model do
     it 'category_idがないと出品できない' do
       @item.category_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category status Select")
+      expect(@item.errors.full_messages).to include('Category status Select')
     end
     it 'product_condition_idがないと出品できない' do
       @item.product_condition_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Product condition status Select")
+      expect(@item.errors.full_messages).to include('Product condition status Select')
     end
     it 'ship_burden_idがないと出品できない' do
       @item.ship_burden_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Ship burden status Select")
+      expect(@item.errors.full_messages).to include('Ship burden status Select')
     end
     it 'prefecture_idがないと出品できない' do
       @item.prefecture_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture status Select")
+      expect(@item.errors.full_messages).to include('Prefecture status Select')
     end
     it 'ship_day_idがないと出品できない' do
       @item.ship_day_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Ship day status Select")
+      expect(@item.errors.full_messages).to include('Ship day status Select')
     end
     it 'priceがない出品できない' do
       @item.price = nil
@@ -54,14 +54,14 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
     it 'priceが半角数字以外だと出品できない' do
-      @item.price = "１１１１"
+      @item.price = '１１１１'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Half-width number")
+      expect(@item.errors.full_messages).to include('Price Half-width number')
     end
     it 'price設定された数値の範囲外だと出品できない' do
-      @item.price = "100"
+      @item.price = '100'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Out of setting range")
+      expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
   end
 end

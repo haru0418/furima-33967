@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-
   validates :image, presence: true
   validates :product, presence: true, length: { maximum: 40 }
   validates :product_description, presence: true, length: { maximum: 1000 }
@@ -9,8 +8,9 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true, numericality: { other_than: 1, message: 'status Select' }
   validates :ship_day_id, presence: true, numericality: { other_than: 1, message: 'status Select' }
   validates :price, presence: true, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
-  validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'Out of setting range' }
-  
+  validates :price, presence: true,
+                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+
   belongs_to :user
   has_one_attached :image
 
@@ -20,5 +20,4 @@ class Item < ApplicationRecord
   belongs_to :ship_burden
   belongs_to :prefecture
   belongs_to :ship_day
-  
 end
