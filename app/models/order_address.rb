@@ -1,9 +1,11 @@
 class OrderAddress
 
   include ActiveModel::Model
-  attr_accessor :post_code, :prefecture_id, :prefecture_city, :prefecture_block, :prefecture_buildin, :phone_number, :order_id, :user_id, :item_id, :token
+  attr_accessor :post_code, :prefecture_id, :prefecture_city, :prefecture_block, :prefecture_buildin, :phone_number, :user_id, :item_id, :order_id, :token
   
   with_options presence: true do
+    validates :item_id
+    validates :user_id
     validates :token
     validates :post_code, format: {with: /\A\d{3}[-]\d{4}\z/, message: "Input correctly"}
     validates :prefecture_id, numericality: { other_than: 1, message: 'status Select' }

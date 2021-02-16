@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe OrderAddress, type: :model do
   before do
-    @orderaddress = FactoryBot.build(:order_address)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @orderaddress = FactoryBot.build(:order_address, item_id: item.id, user_id: user.id)
+    sleep(1)
   end
   describe '商品購入機能で購入できる場合' do
     it '全部記入されていたら購入できる' do
@@ -95,7 +98,6 @@ RSpec.describe OrderAddress, type: :model do
     it 'phone_numberが全角半角数字混合だと購入できない' do
       @orderaddress.phone_number = "123345７８９１１"
       @orderaddress.valid?
-      binding.pry
       expect(@orderaddress.errors.full_messages).to include("Phone number Input only number")
     end
     it 'phone_numberに全角半角英数字が入っていると購入できない' do
@@ -108,6 +110,18 @@ RSpec.describe OrderAddress, type: :model do
       @orderaddress.phone_number = "こんにちは12345"
       @orderaddress.valid?
       expect(@orderaddress.errors.full_messages).to include("Phone number Input only number")
+    end
+
+    it 'user_idがない場合購入できない' do
+      @orderaddress.user_id = nil
+      @orderaddress.valid?
+      expect(@orderaddress.errors.full_messages).to include("User can't be blank")
+    end
+
+    it 'item_idがない場合購入できない' do
+      @orderaddress.item_id = nil
+      @orderaddress.valid?
+      expect(@orderaddress.errors.full_messages).to include("Item can't be blank")
     end
   end
 end
