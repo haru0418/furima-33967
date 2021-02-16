@@ -2,14 +2,13 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_index
   before_action :sold_move_to_index
+  before_action :set_item only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @orderaddress = OrderAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @orderaddress = OrderAddress.new(orderaddress_params)
     if @orderaddress.valid?
       pay_item
@@ -44,5 +43,9 @@ class OrdersController < ApplicationController
 
   def sold_move_to_index
     redirect_to root_path if @item.order.present?
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end

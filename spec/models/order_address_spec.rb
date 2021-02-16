@@ -12,6 +12,7 @@ RSpec.describe OrderAddress, type: :model do
       expect(@orderaddress).to be_valid
     end
     it 'prefecture_buildin以外が記入されていたら購入できる' do
+      @orderaddress.prefecture_buildin = nil
       expect(@orderaddress).to be_valid
     end
   end
@@ -110,6 +111,12 @@ RSpec.describe OrderAddress, type: :model do
       @orderaddress.phone_number = 'こんにちは12345'
       @orderaddress.valid?
       expect(@orderaddress.errors.full_messages).to include('Phone number Input only number')
+    end
+
+    it 'phone_numberが12桁以上なら購入できない' do
+      @orderaddress.phone_number = 123456789123
+      @orderaddress.valid?
+      expect(@orderaddress.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
 
     it 'user_idがない場合購入できない' do
